@@ -1,0 +1,38 @@
+//https://leetcode.com/problems/palindrome-number/
+
+public class Solution {
+    public bool IsPalindrome(int x) {
+        if (x<0)
+            return false;
+        else if (x%10==x)
+        {
+            return true;
+            
+        }
+        else
+        {
+            int LenOfX= x.ToString().Count();
+            int HalfOfLenOfx=LenOfX/2;
+            bool result=true;
+             int RightDigit;
+            int LeftDigit;
+            
+            for (int i=1; i<=(HalfOfLenOfx); i++)
+            {
+            RightDigit=((int)(x/Math.Pow(10,i-1)))%10;
+            LeftDigit=((int)(x/Math.Pow(10,LenOfX-i)))%10;
+                if(RightDigit!=LeftDigit)
+                {
+                    result=false;
+                    break;
+                }
+                
+                
+                
+            }
+                  return result;  
+        }       
+      
+
+    }
+}
