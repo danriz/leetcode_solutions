@@ -1,0 +1,48 @@
+public class Solution {
+    public int RomanToInt(string s) {
+
+        int totalsum=0;
+        int cursorm=0;
+        int cursorm2=0;
+for (int i=0; i<s.Length;i++)
+
+{
+
+    cursorm=RomanDefinition(s[i]);
+if(i+1<s.Length)
+{
+    cursorm2=RomanDefinition(s[i+1]);
+}  
+    if(cursorm<cursorm2)
+    totalsum-=cursorm;
+    else
+    totalsum+=cursorm;  
+}
+        
+        return totalsum;
+        
+    }
+    
+    public int RomanDefinition (char y)
+    {
+        if (y=='I')
+            return 1;
+        else if (y=='V')
+            return 5;
+        else if (y=='X')
+            return 10;
+        else if (y=='L')
+        return 50;
+        else if (y=='C')
+        return 100;
+        else if (y=='D')
+        return 500;
+        else if (y=='M')
+        return 1000;
+        else
+        return 0;
+    }
+        
+    
+    
+}
