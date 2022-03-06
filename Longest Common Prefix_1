@@ -1,0 +1,33 @@
+public class Solution {
+    public string LongestCommonPrefix(string[] strs) {
+        string longest=strs[0];
+        for (int i=1;i<strs.Length;i++)
+        {
+     
+    if(strs[i].Length<longest.Length)        
+    longest=longest.Remove(strs[i].Length,longest.Length-strs[i].Length);
+            for(int j=0;j<strs[i].Length;j++)
+            
+            {
+                
+                if(j<longest.Length && longest[j]!=strs[i][j])
+                
+                {
+                    longest= longest.Remove(j,longest.Length-j);
+                }
+                
+                
+                
+            }
+    
+
+            
+            
+            
+            
+              
+        }
+        return longest;
+        
+    }
+}
