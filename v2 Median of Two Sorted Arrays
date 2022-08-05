@@ -1,0 +1,46 @@
+public class Solution {
+    public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
+        
+            int x = nums1.Length;
+            int y = nums2.Length;
+            int[] myarray = new int[x + y];
+            x--;
+            y--;
+            int k = 0;
+            while(x>=0 || y>=0 )
+            {
+                if(y<0 || (x>=0 && nums1[x]>nums2[y]))
+                {
+                    myarray[k] = nums1[x];
+                    k++;
+                    x--;
+                }
+                else if (x<0 || (y>=0 && nums2[y]>nums1[x]))
+                {
+
+                    myarray[k] = nums2[y];
+                    k++;
+                    y--;
+                    
+                }
+                else
+                {
+                    myarray[k] = nums2[y];
+                    k++;
+                    y--;
+                    myarray[k] = nums1[x];
+                    k++;
+                    x--;
+
+                }
+
+
+            }
+
+            return myarray.Length % 2 == 0 ? (double)(myarray[(myarray.Length / 2) - 1] + myarray[(myarray.Length / 2)]) / 2 : myarray[(myarray.Length - 1) / 2];
+
+
+           
+        
+    }
+}
