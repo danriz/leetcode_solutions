@@ -1,0 +1,22 @@
+public class Solution {
+    public double FindMedianSortedArrays(int[] nums1, int[] nums2) {
+        
+            List<int> mylist = new List<int>();
+            for (int i= 0; i < nums1.Length ;i++)
+            {
+                mylist.Add(nums1[i]);
+
+            }
+
+            for (int ii = 0; ii < nums2.Length ; ii++)
+            {
+                mylist.Add(nums2[ii]);
+
+            }
+            mylist.Sort();
+
+       return mylist.Count%2==0?(double)(mylist[(mylist.Count / 2) - 1]+ mylist[(mylist.Count / 2)])/2:mylist[(mylist.Count - 1) / 2];
+           
+        
+    }
+}
