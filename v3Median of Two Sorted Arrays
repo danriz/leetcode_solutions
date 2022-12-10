@@ -1,0 +1,99 @@
+   public class Solution
+    {
+        public double FindMedianSortedArrays(int[] nums1, int[] nums2)
+        {
+            int k = nums1.Length;
+            int l = nums2.Length;
+            int mycenter = (int)((k + l) / 2) + 1;
+            int mycenter2 = (int)((k + l) / 2) == ((k + l) / 2) ? ((k + l) / 2) : (int)((k + l) / 2) + 1;
+
+            int x = 0;
+            int y = 0;
+            int z = 0;
+            int lastelement = -99;
+            int lastminusoneelement = -99;
+  
+
+            k--;
+            l--;
+            while (k >= y || l >= z)
+            {
+                if (x >= mycenter)
+                {
+                    break;
+
+                }
+
+
+                if (y > k || (z <= l && nums1[y] > nums2[z]))
+                {
+
+
+                    x++;
+                    if (x == mycenter)
+                        lastelement = nums2[z];
+                    if (x == mycenter2)
+                        lastminusoneelement = nums2[z];
+                    z++;
+
+                }
+                else if (z > l || (y <= k && nums2[z] > nums1[y]))
+                {
+
+
+                    x++;
+                    if (x == mycenter)
+                        lastelement = nums1[y];
+                    if (x == mycenter2)
+                        lastminusoneelement = nums1[y];
+                    y++;
+
+                }
+                else
+                {
+
+                    Console.WriteLine("my center is {0}, mycenter2 {1}, ",mycenter,mycenter2);
+
+                    x++;
+                    if (x == mycenter2)
+                    {
+                        lastminusoneelement = nums1[y];
+                    }
+
+                    if (x == mycenter)
+                    {
+                        lastelement = nums1[y];
+
+                    }
+                    if (x >= mycenter)
+                    {
+                        break;
+
+                    }
+                    y++;
+                    x++;
+                    if (x == mycenter)
+                        lastelement = nums2[z];
+                    if (x == mycenter2)
+                        lastminusoneelement = nums2[z];
+                    z++;
+
+                    if (x >= mycenter)
+                    {
+                        break;
+
+                    }
+
+                }
+
+            }
+
+            if ((nums1.Length+ nums2.Length)%2==1)
+            {
+                return lastelement;
+            }
+            else
+                return (double)(lastelement + lastminusoneelement) / 2;
+        }
+
+    }
