@@ -1,4 +1,4 @@
-   public class Solution
+    public class Solution
     {
         public double FindMedianSortedArrays(int[] nums1, int[] nums2)
         {
@@ -52,7 +52,7 @@
                 else
                 {
 
-                    Console.WriteLine("my center is {0}, mycenter2 {1}, ",mycenter,mycenter2);
+                    //Console.WriteLine("my center is {0}, mycenter2 {1}, ",mycenter,mycenter2);
 
                     x++;
                     if (x == mycenter2)
